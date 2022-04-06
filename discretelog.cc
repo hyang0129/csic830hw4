@@ -65,7 +65,7 @@ int main(int argc,char** argv){
 		}
 	}
 
-    cout << solve(A, B, M) endl; 
+    cout << solve(A, B, M) << endl; 
 
     //fprintf(fout, "%lld\n", );
 
