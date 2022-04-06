@@ -101,6 +101,8 @@ int ext_euclid(int a, int b, int& x, int& y)
 
 int ChiResTheory(vector<int> a, map<int, int> nums, int n)
 {
+
+	std::cout.setstate(std::ios_base::failbit);
 	int x = 0, M = 1;
 	vector<int> b;
 	for (auto it = nums.begin(); it != nums.end(); it++)
@@ -122,11 +124,16 @@ int ChiResTheory(vector<int> a, map<int, int> nums, int n)
 			x += n - 1;
 		}
 	}
+
+	std::cout.clear();
 	return x;
 }
 
 int SPH(int n, int b, int y)
-{
+{	
+
+	std::cout.setstate(std::ios_base::failbit);
+
 	map<int, int> nums = decomposition(n - 1);
 	vector<int> x;
 	cout << n - 1 << " = ";
@@ -138,6 +145,7 @@ int SPH(int n, int b, int y)
 	for (int i = 0; i < x.size(); i++)
 		cout << x[i] << endl;
 
+	std::cout.clear();
 	return ChiResTheory(x, nums, n);
 }
 
