@@ -42,9 +42,8 @@ __global__ void sumCommMultiBlock(
     int sum = 0;
     for (int i = gthIdx; i < end; i += gridSize)
 
-        if (i = target) 
+        if (i == target) 
             sum += target;
-
 
 
     __shared__ int shArr[blockSize];
