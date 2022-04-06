@@ -40,7 +40,7 @@ __global__ void sumCommMultiBlock(
     const int gridSize = blockSize * gridDim.x;
 
     int sum = 0;
-    for (int i = gthIdx; i < end; i += gridSize)
+    for (int i = start + gthIdx; i < end; i += gridSize)
 
         if (i == target) 
             sum += target;
@@ -88,7 +88,7 @@ int sumArray(int* arr) {
     cudaMalloc((void**)&dev_lastBlockCounter, sizeof(int));
     cudaMemset(dev_lastBlockCounter, 0, sizeof(int));
 
-    sumCommMultiBlock << <gridSize, blockSize >> > (0, 2048, 10, dev_out, dev_lastBlockCounter);
+    sumCommMultiBlock << <gridSize, blockSize >> > (11, 2048, 10, dev_out, dev_lastBlockCounter);
     cudaDeviceSynchronize();
 
     cudaMemcpy(&out, dev_out, sizeof(int), cudaMemcpyDeviceToHost);
