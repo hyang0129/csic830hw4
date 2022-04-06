@@ -16,9 +16,9 @@ typedef unsigned int uint;
 
 
 
-static const int wholeArraySize = 100000000;
+static const int wholeArraySize = 5;
 static const int blockSize = 1024;
-static const int gridSize = 24;
+static const int gridSize = 4;
 
 __device__ bool lastBlock(int* counter) {
     __threadfence(); //ensure that partial result is visible by all blocks
