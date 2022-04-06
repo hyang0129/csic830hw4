@@ -163,12 +163,12 @@ int main(int argc,char** argv){
 	}
 
 
-	cout << SPH(A, B, M);
+	cout << SPH(A, B, M) << endl;
 
 	long long x = 1;
 	for(long long i = 0;i < M;++i){
 		if(x == B){
-			cout << i;
+			cout << i << endl;
 			fprintf(fout,"%lld\n",i);
 			break;
 		}else{
