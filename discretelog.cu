@@ -17,7 +17,7 @@ typedef unsigned int uint;
 
 
 static const int wholeArraySize = 4;
-static const int blockSize = 1024;
+static const int blockSize = 4;
 static const int gridSize = 1;
 
 __device__ bool lastBlock(int* counter) {
