@@ -44,9 +44,7 @@ __global__ void sumCommMultiBlock(
     int sum = 0;
     for (int i = start + gthIdx; i < end; i += gridSize)
 
-
-
-        if ( (pow(base, i) % modulus) == power)
+        if ( fmod(pow(base, i), modulus) == power)
             sum += i;
 
 
