@@ -32,9 +32,11 @@ __global__ void sumCommMultiBlock(const int* gArr, int arraySize, int* gOut, int
     int thIdx = threadIdx.x;
     int gthIdx = thIdx + blockIdx.x * blockSize;
     const int gridSize = blockSize * gridDim.x;
+
     int sum = 0;
     for (int i = gthIdx; i < arraySize; i += gridSize)
-        sum += gArr[i];
+        sum += 1;
+
     __shared__ int shArr[blockSize];
     shArr[thIdx] = sum;
     __syncthreads();
@@ -64,7 +66,6 @@ int sumArray(int* arr) {
     //cout << "start alloc" << endl;
     cudaMalloc((void**)&dev_arr, wholeArraySize * sizeof(int));
     cudaMemcpy(dev_arr, arr, wholeArraySize * sizeof(int), cudaMemcpyHostToDevice);
-
 
 
     int out;
