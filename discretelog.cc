@@ -163,7 +163,7 @@ int main(int argc,char** argv){
 	}
 
 
-	cout << SPH(M, A, B) << endl;
+	cout << SPH(M, B, A) << endl;
 
 	long long x = 1;
 	for(long long i = 0;i < M;++i){
