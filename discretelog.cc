@@ -54,18 +54,20 @@ int main(int argc,char** argv){
 	if (fscanf(fin, "%lld%lld%lld", &A, &B, &M))
 	{}
 
-	//long long x = 1;
-	//for(long long i = 0;i < M;++i){
-	//	if(x == B){
-	//		cout << i << endl;
-	//		fprintf(fout,"%lld\n",i);
-	//		break;
-	//	}else{
-	//		x = x * A % M;
-	//	}
-	//}
+	long long x = 1;
+	for(long long i = 0;i < M;++i){
+		if(x == B){
+			cout << i << endl;
+			fprintf(fout,"%lld\n",i);
+			break;
+		}else{
+			x = x * A % M;
+		}
+	}
 
-    fprintf(fout, "%lld\n", solve(A, B, M));
+    cout << solve(A, B, M) endl; 
+
+    //fprintf(fout, "%lld\n", );
 
 	fclose(fin);
 	fclose(fout);
