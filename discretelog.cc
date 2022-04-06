@@ -3,6 +3,14 @@
 #include<algorithm>
 #include<queue>
 #include<vector>
+#include<iostream>
+using namespace std;
+#include<map>
+#include<cmath>
+
+
+
+
 
 int main(int argc,char** argv){
 	long long A,B,M;
