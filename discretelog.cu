@@ -86,6 +86,10 @@ int sumArray(int* arr) {
     int base = 7;
     int power = 15;
     int modulus = 41;
+
+    base = 68093; 
+    power = 836856; 
+    modulus = 10000019;
     //cudaMalloc((void**)&target, sizeof(int));
     //cudaMemcpy(target, 10, sizeof(int), cudaMemcpyHostToDevice);
 
