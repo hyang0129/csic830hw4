@@ -79,3 +79,14 @@ __host__ int sumArray(int* arr) {
     cudaFree(dev_out);
     return out;
 }
+
+
+int main() {
+
+    const int arraySize = 5;
+    const int a[arraySize] = { 1,  2,  3,  4,  5 };
+
+
+    cout << sumArray(a);
+}
+
