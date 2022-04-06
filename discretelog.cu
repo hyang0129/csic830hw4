@@ -17,7 +17,7 @@ typedef unsigned int uint;
 
 
 static const int wholeArraySize = 4;
-static const int blockSize = 4;
+static const int blockSize = 1024;
 static const int gridSize = 1;
 
 __device__ bool lastBlock(int* counter) {
@@ -29,6 +29,7 @@ __device__ bool lastBlock(int* counter) {
 }
 
 __global__ void sumCommMultiBlock(
+    int start, 
     int end, 
     int* gOut, 
     int* lastBlockCounter){
@@ -38,7 +39,7 @@ __global__ void sumCommMultiBlock(
     const int gridSize = blockSize * gridDim.x;
 
     int sum = 0;
-    for (int i = gthIdx; i < end; i += gridSize)
+    for (int i = gthIdx + start; i < end; i += gridSize)
         sum += 1;
 
     __shared__ int shArr[blockSize];
@@ -80,7 +81,7 @@ int sumArray(int* arr) {
     cudaMalloc((void**)&dev_lastBlockCounter, sizeof(int));
     cudaMemset(dev_lastBlockCounter, 0, sizeof(int));
 
-    sumCommMultiBlock << <gridSize, blockSize >> > (4, dev_out, dev_lastBlockCounter);
+    sumCommMultiBlock << <gridSize, blockSize >> > (1, 4, dev_out, dev_lastBlockCounter);
     cudaDeviceSynchronize();
 
     cudaMemcpy(&out, dev_out, sizeof(int), cudaMemcpyDeviceToHost);
