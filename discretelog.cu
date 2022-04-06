@@ -29,26 +29,28 @@ __device__ bool lastBlock(int* counter) {
 }
 
 __global__ void sumCommMultiBlock(
-    int start, 
-    int end, 
-    int base, 
-    int power, 
+    int start,
+    int end,
+    int base,
+    int power,
     int modulus,
-    int* gOut, 
-    int* lastBlockCounter){
+    int* gOut,
+    int* lastBlockCounter) {
 
     int thIdx = threadIdx.x;
     int gthIdx = thIdx + blockIdx.x * blockSize;
     const int gridSize = blockSize * gridDim.x;
 
     int sum = 0;
-    int res = 0; 
+    int res = 0;
     for (int i = start + gthIdx; i < end; i += gridSize)
+        {
+            res = pow(base, i);
 
-        res = pow(base, i);
+            if ((res % modulus) == power)
+                sum += i;
+        }
 
-        if ((res % modulus) == power)
-            sum += i;
 
 
     __shared__ int shArr[blockSize];
