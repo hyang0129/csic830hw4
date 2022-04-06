@@ -31,6 +31,7 @@ __device__ bool lastBlock(int* counter) {
 __global__ void sumCommMultiBlock(
     int start, 
     int end, 
+    int target, 
     int* gOut, 
     int* lastBlockCounter){
 
@@ -40,7 +41,11 @@ __global__ void sumCommMultiBlock(
 
     int sum = 0;
     for (int i = gthIdx; i < end; i += gridSize)
-        sum += 2;
+
+        if (i = target) {
+            sum += target
+        }
+
 
     __shared__ int shArr[blockSize];
     shArr[thIdx] = sum;
@@ -81,7 +86,7 @@ int sumArray(int* arr) {
     cudaMalloc((void**)&dev_lastBlockCounter, sizeof(int));
     cudaMemset(dev_lastBlockCounter, 0, sizeof(int));
 
-    sumCommMultiBlock << <gridSize, blockSize >> > (0, 2048, dev_out, dev_lastBlockCounter);
+    sumCommMultiBlock << <gridSize, blockSize >> > (0, 2048, 10, dev_out, dev_lastBlockCounter);
     cudaDeviceSynchronize();
 
     cudaMemcpy(&out, dev_out, sizeof(int), cudaMemcpyDeviceToHost);
