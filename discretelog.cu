@@ -39,7 +39,7 @@ __global__ void sumCommMultiBlock(
     const int gridSize = blockSize * gridDim.x;
 
     int sum = 0;
-    for (int i = gthIdx; i < end; i += gridSize)
+    for (int i = gthIdx; i < end; i += blockSize)
         sum += 1;
 
     __shared__ int shArr[blockSize];
