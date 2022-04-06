@@ -40,7 +40,7 @@ __global__ void sumCommMultiBlock(
 
     int sum = 0;
     for (int i = gthIdx; i < end; i += gridSize)
-        sum += 1;
+        sum += 2;
 
     __shared__ int shArr[blockSize];
     shArr[thIdx] = sum;
