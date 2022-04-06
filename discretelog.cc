@@ -12,9 +12,9 @@ using namespace std;
 #include <math.h> 
 
 
-int solve(int a, int b, int m) {
+long long solve(long long a, long long b, long long m) {
     a %= m, b %= m;
-    int k = 1, add = 0, g;
+    long long k = 1, add = 0, g;
     while ((g = __gcd(a, m)) > 1) {
         if (b == k)
             return add;
@@ -24,8 +24,8 @@ int solve(int a, int b, int m) {
         k = (k * 1ll * a / g) % m;
     }
 
-    int n = sqrt(m) + 1;
-    int an = 1;
+    long long n = sqrt(m) + 1;
+    long long an = 1;
     for (int i = 0; i < n; ++i)
         an = (an * 1ll * a) % m;
 
@@ -38,7 +38,7 @@ int solve(int a, int b, int m) {
     for (int p = 1, cur = k; p <= n; ++p) {
         cur = (cur * 1ll * an) % m;
         if (vals.count(cur)) {
-            int ans = n * p - vals[cur] + add;
+            long long ans = n * p - vals[cur] + add;
             return ans;
         }
     }
