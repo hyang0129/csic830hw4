@@ -43,7 +43,7 @@ __global__ void sumCommMultiBlock(
     for (int i = gthIdx; i < end; i += gridSize)
 
         if (i = target) {
-            sum += target
+            sum += target;
         }
 
 
