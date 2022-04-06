@@ -58,10 +58,14 @@ __global__ void sumCommMultiBlock(const int* gArr, int arraySize, int* gOut, int
     }
 }
 
-__host__ int sumArray(int* arr) {
+int sumArray(int* arr) {
     int* dev_arr;
+
+    cout << "start alloc";
     cudaMalloc((void**)&dev_arr, wholeArraySize * sizeof(int));
     cudaMemcpy(dev_arr, arr, wholeArraySize * sizeof(int), cudaMemcpyHostToDevice);
+
+
 
     int out;
     int* dev_out;
@@ -77,6 +81,7 @@ __host__ int sumArray(int* arr) {
     cudaMemcpy(&out, dev_out, sizeof(int), cudaMemcpyDeviceToHost);
     cudaFree(dev_arr);
     cudaFree(dev_out);
+
     return out;
 }
 
@@ -87,6 +92,6 @@ int main() {
     int a[arraySize] = { 1,  2,  3,  4,  5 };
 
 
-    cout << sumArray(a);
+    sumArray(a);
 }
 
