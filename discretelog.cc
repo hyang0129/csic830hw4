@@ -18,8 +18,7 @@ int main(int argc,char** argv){
 	FILE* fout = fopen(argv[2],"w");
 
 	if (fscanf(fin, "%lld%lld%lld", &A, &B, &M))
-	{
-	}
+	{}
 
 	long long x = 1;
 	for(long long i = 0;i < M;++i){
