@@ -1,1 +1,1 @@
-./discretelog
+./discretelogcu
