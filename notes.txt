@@ -7,3 +7,4 @@ git add . ; git commit -m "limit generate to first 4" ; git push
 ./compile_generator.sh
 ./input_generator
 
+git add . ; git commit -m "fix fscan" ; git push
