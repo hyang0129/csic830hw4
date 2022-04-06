@@ -103,7 +103,7 @@ int sumArray(int* arr) {
 
 
 
-    sumCommMultiBlock << <gridSize, blockSize >> > (1, 4000, base, power, modulus, dev_out, dev_lastBlockCounter);
+    sumCommMultiBlock << <gridSize, blockSize >> > (1, 10000019, base, power, modulus, dev_out, dev_lastBlockCounter);
     cudaDeviceSynchronize();
 
     cudaMemcpy(&out, dev_out, sizeof(int), cudaMemcpyDeviceToHost);
