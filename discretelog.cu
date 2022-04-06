@@ -92,6 +92,6 @@ int main() {
     int a[arraySize] = { 1,  2,  3,  4,  5 };
 
 
-    sumArray(a);
+    cout << sumArray(a);
 }
 
