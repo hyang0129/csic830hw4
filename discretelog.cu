@@ -46,7 +46,7 @@ __global__ void sumCommMultiBlock(
 
 
 
-        if (pow(base, i) == power)
+        if ( (pow(base, i) % modulus) == power)
             sum += i;
 
 
