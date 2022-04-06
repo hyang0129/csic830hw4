@@ -8,7 +8,7 @@
 #include<stdlib.h>
 #include<iostream>
 #include <iomanip>
-
+#include <math.h> 
 #include <stdio.h>
 
 using namespace std;
@@ -45,7 +45,7 @@ __global__ void sumCommMultiBlock(
     for (int i = start + gthIdx; i < end; i += gridSize)
 
         if (pow(base, i) % modulus == power)
-            sum += i
+            sum += i;
 
 
     __shared__ int shArr[blockSize];
