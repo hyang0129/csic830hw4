@@ -84,7 +84,7 @@ __host__ int sumArray(int* arr) {
 int main() {
 
     const int arraySize = 5;
-    const int a[arraySize] = { 1,  2,  3,  4,  5 };
+    int a[arraySize] = { 1,  2,  3,  4,  5 };
 
 
     cout << sumArray(a);
