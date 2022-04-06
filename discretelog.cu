@@ -88,7 +88,7 @@ int sumArray(int* arr) {
     cudaMalloc((void**)&dev_lastBlockCounter, sizeof(int));
     cudaMemset(dev_lastBlockCounter, 0, sizeof(int));
 
-    sumCommMultiBlock << <gridSize, blockSize >> > (1, 2048, 1, dev_out, dev_lastBlockCounter);
+    sumCommMultiBlock << <gridSize, blockSize >> > (2, 2048, 1, dev_out, dev_lastBlockCounter);
     cudaDeviceSynchronize();
 
     cudaMemcpy(&out, dev_out, sizeof(int), cudaMemcpyDeviceToHost);
