@@ -42,9 +42,10 @@ __global__ void sumCommMultiBlock(
     const int gridSize = blockSize * gridDim.x;
 
     int sum = 0;
+    int res = 0; 
     for (int i = start + gthIdx; i < end; i += gridSize)
 
-        int res = pow(base, i);
+        res = pow(base, i);
 
         if (fmod(res, modulus) == power)
             sum += i;
