@@ -42,9 +42,9 @@ __global__ void sumCommMultiBlock(
     int sum = 0;
     for (int i = gthIdx; i < end; i += gridSize)
 
-        if (i = target) {
+        if (i = target) 
             sum += target;
-        }
+
 
 
     __shared__ int shArr[blockSize];
@@ -77,6 +77,9 @@ int sumArray(int* arr) {
     cudaMalloc((void**)&dev_arr, wholeArraySize * sizeof(int));
     cudaMemcpy(dev_arr, arr, wholeArraySize * sizeof(int), cudaMemcpyHostToDevice);
 
+    int target;
+    //cudaMalloc((void**)&target, sizeof(int));
+    //cudaMemcpy(target, 10, sizeof(int), cudaMemcpyHostToDevice);
 
     int out;
     int* dev_out;
