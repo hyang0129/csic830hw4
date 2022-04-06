@@ -16,9 +16,9 @@ typedef unsigned int uint;
 
 
 
-static const int wholeArraySize = 5;
-static const int blockSize = 1024;
-static const int gridSize = 4;
+static const int wholeArraySize = 4;
+static const int blockSize = 4;
+static const int gridSize = 1;
 
 __device__ bool lastBlock(int* counter) {
     __threadfence(); //ensure that partial result is visible by all blocks
@@ -88,8 +88,8 @@ int sumArray(int* arr) {
 
 int main() {
 
-    const int arraySize = 5;
-    int a[arraySize] = { 1,  2,  3,  4,  5 };
+    const int arraySize = 4;
+    int a[arraySize] = { 1,  2,  3,  4 };
 
 
     cout << sumArray(a) << endl;
