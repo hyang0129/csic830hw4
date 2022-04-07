@@ -12,7 +12,7 @@ def bsgs(g, h, p):
     N = ceil(sqrt(p - 1))  # phi(p) is p-1 if p is prime
 
     # Store hashmap of g^{1...m} (mod p). Baby step.
-    tbl = {pow(g, i, p): i for i in range(N)}
+    tbl = {pow(g, i, p): i for i in range(int(N))}
 
     # Precompute via Fermat's Little Theorem
     c = pow(g, N * (p - 2), p)
