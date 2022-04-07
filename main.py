@@ -5,10 +5,6 @@ import math
 
 
 def bsgs(g, h, p):
-    '''
-    Solve for x in h = g^x mod p given a prime p.
-    If p is not prime, you shouldn't use BSGS anyway.
-    '''
     N = ceil(sqrt(p - 1))  # phi(p) is p-1 if p is prime
 
     # Store hashmap of g^{1...m} (mod p). Baby step.
