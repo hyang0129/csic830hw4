@@ -5,6 +5,15 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "abc", "abc.vcxproj", "{D62D27C3-8F46-46A8-94DE-8392B53B1BE6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AE46804D-8FDB-430C-8AF5-DE8D2385C5CF}"
+	ProjectSection(SolutionItems) = preProject
+		compile.sh = compile.sh
+		notes.txt = notes.txt
+		run.sh = run.sh
+		runcu.sh = runcu.sh
+		test.sh = test.sh
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

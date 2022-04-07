@@ -13,7 +13,8 @@ using namespace std;
 
 
 long long solve(long long a, long long b, long long m) {
-    a %= m, b %= m;
+    //a %= m, b %= m;
+    
     long long k = 1, add = 0, g;
     while ((g = __gcd(a, m)) > 1) {
         if (b == k)
